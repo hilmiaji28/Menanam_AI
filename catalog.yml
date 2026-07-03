@@ -1,0 +1,63 @@
+# =====================================================
+# RAW DATA
+# =====================================================
+
+crop_recommendation:
+  type: pandas.CSVDataset
+  filepath: data/01_raw/Crop_recommendation.csv
+
+yield_dataset:
+  type: pandas.CSVDataset
+  filepath: data/01_raw/final_dataset.csv
+
+knowledge_base:
+  type: pandas.CSVDataset
+  filepath: knowledge_base_clean/knowledge_base_clean.csv
+
+# =====================================================
+# PRIMARY DATA
+# =====================================================
+
+processed_dataset:
+  type: pandas.CSVDataset
+  filepath: data/03_primary/final_dataset_modeling.csv
+
+documents:
+  type: pickle.PickleDataset
+  filepath: process/documents.pkl
+
+# =====================================================
+# MODELS
+# =====================================================
+
+yield_model:
+  type: pickle.PickleDataset
+  filepath: models/yield_prediction.pkl
+
+preprocessor:
+  type: pickle.PickleDataset
+  filepath: models/preprocessor.pkl
+
+feature_columns:
+  type: pickle.PickleDataset
+  filepath: models/feature_columns.pkl
+
+# =====================================================
+# EVALUATION
+# =====================================================
+
+metrics:
+  type: json.JSONDataset
+  filepath: reports/metrics.json
+
+feature_importance:
+  type: pandas.CSVDataset
+  filepath: reports/feature_importance.csv
+
+# =====================================================
+# VECTOR DATABASE
+# =====================================================
+
+vector_db:
+  type: pickle.PickleDataset
+  filepath: vector_db/chroma

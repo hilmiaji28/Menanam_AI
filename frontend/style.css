@@ -1,0 +1,28 @@
+.block-container {
+    padding-top: 2rem;
+}
+
+div[data-testid="metric-container"] {
+
+    border-radius: 12px;
+
+    padding: 20px;
+
+    border: 1px solid #E0E0E0;
+
+    background: white;
+}
+
+.stButton>button {
+
+    border-radius: 12px;
+
+    height: 50px;
+
+    font-weight: bold;
+}
+
+.stChatMessage {
+
+    border-radius: 15px;
+}
