@@ -1,3 +1,15 @@
+---
+title: Menanam AI
+emoji: 🌱
+colorFrom: green
+colorTo: blue
+sdk: docker
+pinned: false
+---
+
+# Menanam AI
+
+AI-powered agricultural assistant built with FastAPI, RAG, and Streamlit.
 
 🌾 Menanam AI
 
@@ -218,8 +230,8 @@ Mobile Application
 Fertilizer Recommendation System
 
 ## Future Deployment
-Docker
-Render
+Docker (Frontend)
+Render (Backend)
 
 👨‍💻 Author
 Hilmi Aji
