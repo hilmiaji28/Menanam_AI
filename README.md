@@ -1,230 +1,310 @@
-# Menanam AI
+<div align="center">
 
-AI-powered agricultural assistant built with FastAPI, RAG, and Streamlit.
+# 🌱 Menanam AI
 
-🌾 Menanam AI
+### AI-Powered Smart Agriculture Decision Support System
 
-An Intelligent AI-Powered Decision Support System for Indonesian Agriculture
+An intelligent agricultural assistant that combines **Machine Learning**, **Hybrid Retrieval-Augmented Generation (Hybrid RAG)**, and **Large Language Models (LLMs)** to help farmers estimate crop productivity and access reliable agricultural knowledge.
 
-Menanam AI is an end-to-end agricultural AI platform that combines Machine Learning, Retrieval-Augmented Generation (RAG), and Large Language Models (LLMs) to assist farmers, researchers, and agricultural practitioners in making data-driven farming decisions.
+<p>
 
-The application provides:
+![Python](https://img.shields.io/badge/Python-3.12-blue?logo=python)
+![FastAPI](https://img.shields.io/badge/FastAPI-Backend-009688?logo=fastapi)
+![Streamlit](https://img.shields.io/badge/Streamlit-Frontend-FF4B4B?logo=streamlit)
+![XGBoost](https://img.shields.io/badge/XGBoost-Machine%20Learning-orange)
+![LangChain](https://img.shields.io/badge/LangChain-Hybrid%20RAG-green)
+![ChromaDB](https://img.shields.io/badge/ChromaDB-Vector%20Database-purple)
+![License](https://img.shields.io/badge/License-MIT-yellow)
 
-🌾 Crop productivity prediction
-🤖 AI agricultural assistant
-🌦 Historical weather integration
-📍 Location-based prediction
-📚 Knowledge retrieval from agricultural documents
-🌐 Internet search fallback for up-to-date information
-✨ Features
-🌾 Crop Productivity Prediction
+</p>
 
-Predict crop productivity using historical weather conditions and machine learning.
+</div>
 
-Features:
+---
 
-Location-based prediction
-Interactive map
-Automatic coordinates
-Historical weather lookup
-Manual weather input
-Estimated harvest calculation
+# 📖 Overview
 
-🤖 AI Knowledge Assistant
-An AI chatbot powered by Hybrid RAG.
+**Menanam AI** is an AI-powered decision support system designed to support modern agriculture by combining predictive analytics and generative AI.
 
-Capabilities:
-Agricultural consultation
-Disease identification guidance
-Cultivation practices
-Fertilizer recommendations
-Pest management
-Internet fallback for current information
+The application enables users to:
 
-📍 Historical Weather Integration
-Automatically retrieves historical weather based on selected district.
+- 🌾 Predict crop productivity using Machine Learning.
+- 🤖 Ask agricultural questions through an AI Assistant powered by Hybrid RAG.
+- 📍 Explore historical weather information interactively.
+- 📚 Retrieve trusted agricultural knowledge from a semantic knowledge base.
 
-Weather variables include:
-Temperature
-Maximum Temperature
-Minimum Temperature
-Rainfall
-Humidity
-Wind Speed
-Solar Radiation
+---
 
-⚡ FastAPI Backend
-REST API for:
-Productivity Prediction
-AI Assistant
-Health Check
+# ✨ Key Features
 
-🏗 System Architecture
-                User
+| Feature | Description |
+|----------|-------------|
+| 🌾 Productivity Prediction | Predict crop productivity using historical weather data |
+| ☁️ Historical Weather | Display historical weather information for selected districts |
+| 📍 Interactive Map | Select districts directly from an interactive map |
+| 🤖 AI Assistant | Agricultural chatbot powered by Google Gemini |
+| 📚 Knowledge Base | Semantic search using Chroma Vector Database |
+| 🌐 Internet Search | Tavily fallback when local knowledge is insufficient |
 
-                  │
+---
 
-      Streamlit Frontend
+# 🏗 System Architecture
 
-      ┌─────────┴─────────┐
+<p align="center">
 
-Prediction            AI Assistant
+<img src="docs/images/architecture.png" width="900">
 
-      │                     │
+</p>
 
-Historical Weather     Hybrid RAG
+---
 
-      │                     │
+# 🔄 Machine Learning Pipeline
 
-Machine Learning      Chroma Vector DB
+<p align="center">
 
-      │                     │
+<img src="docs/images/pipeline.png" width="900">
 
-XGBoost Model      Gemini + Internet Search
+</p>
 
-      └─────────┬──────────┘
+---
 
-            FastAPI Backend
+# 🚀 Deployment Architecture
 
-🛠 Tech Stack
-## Frontend
-Streamlit
+<p align="center">
 
-## Backend
-FastAPI
-Uvicorn
+<img src="docs/images/deployment.png" width="900">
+
+</p>
+
+---
+
+# 📂 Project Structure
+
+```text
+Menanam_AI/
+│
+├── app/                        # FastAPI Backend
+│   ├── api/
+│   ├── core/
+│   ├── schemas/
+│   ├── services/
+│   └── main.py
+│
+├── frontend/                   # Streamlit Frontend
+│   ├── pages/
+│   ├── components/
+│   ├── services/
+│   ├── utils/
+│   ├── assets/
+│   ├── Home.py
+│   └── config.py
+│
+├── data/
+│   ├── raw/
+│   ├── primary/
+│   └── intermediate/
+│
+├── models/
+├── vector_db/
+├── knowledge_base/
+├── knowledge_base_clean/
+├── process/
+├── scripts/
+├── docs/
+│
+├── requirements.txt
+├── README.md
+└── .gitignore
+```
+
+---
+
+# ⚙️ Technology Stack
 
 ## Machine Learning
-XGBoost
-Scikit-Learn
-Pandas
-NumPy
 
-## LLM
-Google Gemini
+- XGBoost
+- Scikit-Learn
+- Pandas
+- NumPy
 
-## Embedding
-intfloat/multilingual-e5-base
+## Backend
 
-## Vector Database
-ChromaDB
+- FastAPI
+- Uvicorn
+- Pydantic
 
-## Visualization
-Folium
-Streamlit-Folium
+## Frontend
 
-## Deployment
-Streamlit Community Cloud
+- Streamlit
+- Folium
+- Streamlit-Folium
 
-🚀 Installation
-git clone https://github.com/USERNAME/menanam-ai.git
-cd menanam-ai
+## Hybrid RAG
 
-Create virtual environment
-python -m venv venv
-Windows
-venv\Scripts\activate
+- LangChain
+- ChromaDB
+- HuggingFace Embeddings
+- Google Gemini
+- Tavily Search
 
-Install dependencies
+---
+
+# 📊 Dataset
+
+This project integrates multiple datasets:
+
+- Crop Productivity Dataset
+- Historical Weather Dataset
+- Crop Recommendation Dataset
+- Geographic Coordinates Dataset
+- Agricultural Knowledge Base
+
+---
+
+# 📷 Application Preview
+
+## 🏠 Home
+
+<img src="docs/images/home.png">
+
+---
+
+## 🌾 Productivity Prediction
+
+<img src="docs/images/prediction.png">
+
+---
+
+## 🤖 AI Assistant
+
+<img src="docs/images/assistant.png">
+
+---
+
+## ℹ️ About
+
+<img src="docs/images/about.png">
+
+---
+
+# 🚀 Getting Started
+
+## 1. Clone Repository
+
+```bash
+git clone https://github.com/hilmiaji28/Menanam_AI.git
+
+cd Menanam_AI
+```
+
+---
+
+## 2. Install Dependencies
+
+```bash
 pip install -r requirements.txt
+```
 
-⚙ Environment Variables
-Create .env
+---
 
+## 3. Create Environment Variables
+
+Create a `.env` file.
+
+```env
 GOOGLE_API_KEY=YOUR_GOOGLE_API_KEY
 
-FASTAPI_URL=http://localhost:8000
-▶ Run Backend
+TAVILY_API_KEY=YOUR_TAVILY_API_KEY
+```
+
+---
+
+## 4. Run FastAPI Backend
+
+```bash
 uvicorn app.main:app --reload
-Swagger
+```
 
-http://localhost:8000/docs
-▶ Run Frontend
-cd frontend
-streamlit run Home.py
-🤖 Machine Learning Pipeline
+Backend URL
 
-The productivity prediction model was trained using historical agricultural and weather datasets.
+```
+http://localhost:8000
+```
 
-Input Features
-Crop Type
-Temperature
-Maximum Temperature
-Minimum Temperature
-Rainfall
-Humidity
-Wind Speed
-Solar Radiation
-Model
+---
 
-XGBoost Regressor
+## 5. Run Streamlit Frontend
 
-Output
-Productivity (quintal/hectare)
-Estimated Harvest (ton)
+```bash
+streamlit run frontend/Home.py
+```
 
+Frontend URL
 
-📚 RAG Pipeline
-Question
+```
+http://localhost:8501
+```
 
-↓
+---
 
-Embedding
+# 📈 Model Performance
 
-↓
+| Model | Metric |
+|--------|--------|
+| XGBoost Regressor | R² ≈ 0.80 |
+| Mean Absolute Error | ~26 |
+| Root Mean Squared Error | ~45 |
 
-ChromaDB Retrieval
+---
 
-↓
+# 🔮 Future Work
 
-Similarity Check
+- Crop Recommendation System
+- Real-time Weather API Integration
+- Satellite Imagery Analysis (NDVI)
+- Pest & Disease Detection
+- User Authentication
+- Cloud Deployment
+- Mobile Application
 
-↓
+---
 
-Knowledge Base
+# 📚 Documentation
 
-or
+Detailed documentation is available in the `docs/` directory.
 
-Internet Search
+- System Architecture
+- Machine Learning Pipeline
+- Deployment Architecture
 
-↓
+---
 
-Gemini
+# 👨‍💻 Author
 
-↓
+**Hilmi Aji**
 
-Answer
-
-
-📊 Dataset
-The project utilizes multiple agricultural datasets including:
-
-Historical Weather Dataset
-Crop Productivity Dataset
-Agricultural Knowledge Base
-Geographic Coordinates Dataset
-
-📸 Demo
-Home
-Prediction
-AI Assistant
-About
-
-🚀 Future Work
-Crop Recommendation
-NASA POWER API Integration
-Sentinel-2 Satellite Monitoring
-NDVI Analysis
-Prediction History
-Farmer Dashboard
-Mobile Application
-Fertilizer Recommendation System
-
-## Future Deployment
-Docker (Frontend)
-Render (Backend)
-
-👨‍💻 Author
-Hilmi Aji
 Bachelor of Agricultural Engineering
-Bandung Institute of Technology (ITB)
+
+Institut Teknologi Bandung (ITB)
+
+AI Engineer | Machine Learning | Business Analytics
+
+- GitHub: https://github.com/hilmiaji28
+- LinkedIn: *(Add your LinkedIn URL here)*
+
+---
+
+# ⭐ Support
+
+If you find this project useful, please consider giving it a **⭐ Star** on GitHub.
+
+It helps others discover the project and supports future development.
+
+---
+
+<div align="center">
+
+Made with ❤️ using FastAPI, Streamlit, XGBoost, LangChain, ChromaDB, and Google Gemini.
+
+</div>
