@@ -8,14 +8,16 @@ conf/local/**
 # ignore potentially sensitive credentials files
 conf/**/*credentials*
 
-# ignore everything in the following folders
-data/**
+# Ignore raw dataset only
+data/raw/
 
-# except their sub-folders
-!data/**/
+# Keep processed datasets
+!data/primary/
+!data/intermediate/
 
-# also keep all .gitkeep files
-!.gitkeep
+# Keep csv files
+!data/primary/*.csv
+!data/intermediate/*.csv
 
 # also keep the example dataset
 !data/01_raw/companies.csv
