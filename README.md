@@ -48,31 +48,11 @@ The application enables users to:
 
 ---
 
-# 🏗 System Architecture
+# 🏗 System Structure
 
 <p align="center">
 
-<img src="docs/images/architecture.png" width="900">
-
-</p>
-
----
-
-# 🔄 Machine Learning Pipeline
-
-<p align="center">
-
-<img src="docs/images/pipeline.png" width="900">
-
-</p>
-
----
-
-# 🚀 Deployment Architecture
-
-<p align="center">
-
-<img src="docs/images/deployment.png" width="900">
+<img src="docs/Structure.png" width="900">
 
 </p>
 
@@ -166,25 +146,19 @@ This project integrates multiple datasets:
 
 ## 🏠 Home
 
-<img src="docs/images/home.png">
+<img src="frontend/assets/Home 1.jpeg">
 
 ---
 
 ## 🌾 Productivity Prediction
 
-<img src="docs/images/prediction.png">
+<img src="frontend/assets/Crop Productivity Prediction 2.jpeg">
 
 ---
 
 ## 🤖 AI Assistant
 
-<img src="docs/images/assistant.png">
-
----
-
-## ℹ️ About
-
-<img src="docs/images/about.png">
+<img src="frontend/assets/AI Assistant 2.jpeg">
 
 ---
 
@@ -304,7 +278,3 @@ It helps others discover the project and supports future development.
 ---
 
 <div align="center">
-
-Made with ❤️ using FastAPI, Streamlit, XGBoost, LangChain, ChromaDB, and Google Gemini.
-
-</div>
