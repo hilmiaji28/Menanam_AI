@@ -979,206 +979,167 @@ if "prediction" in st.session_state:
 
     prediction = st.session_state["prediction"]
 
-    confidence = st.session_state["confidence"]
-
     estimasi_panen = st.session_state["estimasi_panen"]
 
     recommendation = st.session_state["recommendation"]
 
     payload = st.session_state["payload"]
 
-    tab1, tab2, tab3 = st.tabs(
+    # ======================================================
+    # METRICS
+    # ======================================================
+
+    c1, c2 = st.columns(2)
+
+    with c1:
+
+        st.metric(
+
+            "🌾 Produktivitas",
+
+            f"{prediction:.2f}",
+
+            "Kuintal / Ha"
+
+        )
+
+    with c2:
+
+        st.metric(
+
+            "🚜 Estimasi Panen",
+
+            f"{estimasi_panen:.2f}",
+
+            "Ton"
+
+        )
+
+    st.progress(
+
+        min(
+
+            prediction / 100,
+
+            1.0
+
+        )
+
+    )
+
+    st.success(
+
+        "Prediksi berhasil dibuat."
+
+    )
+
+    # ======================================================
+    # AI RECOMMENDATION
+    # ======================================================
+
+    st.markdown("---")
+
+    st.subheader("🤖 AI Insight")
+
+    st.info(
+
+        recommendation
+
+    )
+
+    # ======================================================
+    # INPUT SUMMARY
+    # ======================================================
+
+    st.markdown("---")
+
+    st.subheader("📋 Ringkasan Input")
+
+    left, right = st.columns(2)
+
+    with left:
+
+        st.write(f"**Kabupaten** : {kabupaten}")
+
+        st.write(f"**Komoditas** : {komoditas}")
+
+        st.write(f"**Luas Lahan** : {luas_lahan:.2f} Ha")
+
+        st.write(f"**Temperature** : {payload['temperature']:.2f} °C")
+
+        st.write(f"**Temp Max** : {payload['temp_max']:.2f} °C")
+
+        st.write(f"**Temp Min** : {payload['temp_min']:.2f} °C")
+
+    with right:
+
+        st.write(f"**Rainfall** : {payload['rainfall']:.2f} mm")
+
+        st.write(f"**Humidity** : {payload['humidity']:.2f} %")
+
+        st.write(f"**Wind Speed** : {payload['wind_speed']:.2f} m/s")
+
+        st.write(
+            f"**Solar Radiation** : {payload['solar_radiation']:.2f}"
+        )
+
+    # ======================================================
+    # DOWNLOAD
+    # ======================================================
+
+    st.markdown("---")
+
+    st.subheader("📥 Download Hasil")
+
+    export = pd.DataFrame(
 
         [
 
-            "📈 Prediction",
+            {
 
-            "💡 AI Insight",
+                "Kabupaten": kabupaten,
 
-            "📋 Input Summary"
+                "Komoditas": komoditas,
+
+                "Produktivitas (Kuintal/Ha)": prediction,
+
+                "Estimasi Panen (Ton)": estimasi_panen,
+
+                "Luas Lahan (Ha)": luas_lahan,
+
+                "Temperature": payload["temperature"],
+
+                "Temp Max": payload["temp_max"],
+
+                "Temp Min": payload["temp_min"],
+
+                "Rainfall": payload["rainfall"],
+
+                "Humidity": payload["humidity"],
+
+                "Wind Speed": payload["wind_speed"],
+
+                "Solar Radiation": payload["solar_radiation"]
+
+            }
 
         ]
 
     )
 
-    # ======================================================
-    # TAB 1
-    # ======================================================
+    st.download_button(
 
-    with tab1:
+        "📥 Download Prediction Result",
 
-        c1, c2, c3 = st.columns(3)
+        export.to_csv(index=False),
 
-        with c1:
+        file_name="prediction_result.csv",
 
-            st.metric(
+        mime="text/csv",
 
-                "🌾 Produktivitas",
+        use_container_width=True
 
-                f"{prediction:.2f}",
-
-                "Kuintal / Ha"
-
-            )
-
-        with c2:
-
-            st.metric(
-
-                "🚜 Estimasi Panen",
-
-                f"{estimasi_panen:.2f}",
-
-                "Ton"
-
-            )
-
-        with c3:
-
-            if confidence is not None:
-                st.metric(
-
-                    "🎯 Confidence",
-
-                    f"{confidence:.1f}%"
-
-                )
-
-            else:
-
-                st.metric(
-
-                    "🎯 Confidence",
-
-                    "N/A"
-
-                )
-
-        st.progress(
-
-            min(
-
-                prediction / 100,
-
-                1.0
-
-            )
-
-        )
-
-        st.success(
-
-            "Prediksi berhasil dibuat."
-
-        )
-
-    # ======================================================
-    # TAB 2
-    # ======================================================
-
-    with tab2:
-
-        st.markdown("### 🤖 AI Recommendation")
-
-        st.info(
-
-            recommendation
-
-        )
-
-        st.markdown("---")
-
-        st.markdown("### 📍 Informasi Lokasi")
-
-        st.write(
-
-            f"**Kabupaten :** {kabupaten}"
-
-        )
-
-        st.write(
-
-            f"**Komoditas :** {komoditas}"
-
-        )
-
-        st.write(
-
-            f"**Luas Lahan :** {luas_lahan:.2f} Ha"
-
-        )
-
-    # ======================================================
-    # TAB 3
-    # ======================================================
-
-    with tab3:
-
-        summary = pd.DataFrame(
-
-            {
-
-                "Feature":
-
-                payload.keys(),
-
-                "Value":
-
-                payload.values()
-
-            }
-
-        )
-
-        st.dataframe(
-
-            summary,
-
-            use_container_width=True
-
-        )
-
-        export = pd.DataFrame(
-
-            [
-
-                {
-
-                    "Kabupaten": kabupaten,
-
-                    "Komoditas": komoditas,
-
-                    "Prediction": prediction,
-
-                    "Confidence": confidence,
-
-                    "Estimasi Panen": estimasi_panen,
-
-                    "Luas Lahan": luas_lahan
-
-                }
-
-            ]
-
-        )
-
-        st.download_button(
-
-            "📥 Download CSV",
-
-            export.to_csv(
-
-                index=False
-
-            ),
-
-            file_name="prediction_result.csv",
-
-            mime="text/csv",
-
-            use_container_width=True
-
-        )
+    )
 
 st.divider()
 
